@@ -1,0 +1,683 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>delicate-guide</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="Roadmap.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="entries.html"><strong aria-hidden="true">1.</strong> Terminology combing</a></li><li class="chapter-item expanded "><a href="quick_start.html"><strong aria-hidden="true">2.</strong> Quick start</a></li><li class="chapter-item expanded "><a href="quick_start_zh_cn.html"><strong aria-hidden="true">3.</strong> Quick start(中文)</a></li><li class="chapter-item expanded "><a href="reference.html"><strong aria-hidden="true">4.</strong> Quick Navigation</a></li><li class="chapter-item expanded "><a href="promotional_doc.html"><strong aria-hidden="true">5.</strong> Promotion</a></li><li class="chapter-item expanded "><a href="promotional_doc_zh_cn.html"><strong aria-hidden="true">6.</strong> Promotion(中文)</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">delicate-guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="what-is-delicate"><a class="header" href="#what-is-delicate">What is delicate</a></h2>
+<a href="">
+    <img src="./delicate_logo.png"
+         alt="delicate logo" title="delicate" height="125" width="125"  align="right"/>
+</a>
+<p><code>delicate</code> A lightweight and distributed task scheduling platform written in rust.</p>
+<h2 id="features"><a class="header" href="#features">features</a></h2>
+<ul>
+<li>
+<p><strong>Friendly UI:</strong> [Front-end] Convenient management of tasks &amp; executors, monitoring their status and supporting manual maintenance etc.</p>
+</li>
+<li>
+<p><strong>Flexible Operations:</strong> Flexible task operations, support for limiting the maximum number of parallelism in a single node, time zone settings corresponding to cron expressions, scheduling modes (single, fixed number, constantly repeating), the ability to manually trigger tasks at any time, manually terminate task instances, and view task logs online.</p>
+</li>
+<li>
+<p><strong>High Availability:</strong>  Delicate supports unlimited horizontal expansion. It's easy to achieve high availability and performance by deploying as many Delicate servers and executors.</p>
+</li>
+<li>
+<p><strong>High Performance:</strong> Lightweight and essential features speed up the performance, The basic resource overhead for <code>delicate</code> is roughly (less than 0.1% cpu usage, with about 10m of memory.)</p>
+</li>
+<li>
+<p><strong>Observability:</strong>  There are many meaningful statistics periodically in a readable way.</p>
+</li>
+<li>
+<p><strong>Upgrade:</strong>  Dynamic upgrade of the system (upgrade is done by obtaining the latest source code and performing database migration.</p>
+</li>
+<li>
+<p><strong>Reusability:</strong>  Excutor provides <code>restful-api</code> that allows user applications to maintain custom tasks.</p>
+</li>
+</ul>
+<h2 id="delicate-roadmap"><a class="header" href="#delicate-roadmap">Delicate Roadmap</a></h2>
+<ul>
+<li><a href="Roadmap.html#delicate-roadmap">Delicate Roadmap</a>
+<ul>
+<li><a href="Roadmap.html#product-principles">Product Principles</a></li>
+<li><a href="Roadmap.html#features">Features</a>
+<ul>
+<li><a href="Roadmap.html#business-extensibility">Business Extensibility</a></li>
+</ul>
+</li>
+<li><a href="Roadmap.html#roadmap-2021">Roadmap 2021</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="product-principles"><a class="header" href="#product-principles">Product Principles</a></h2>
+<ol>
+<li><strong>Operability &amp; Experience</strong>.  Designed with easy-to-understand features that provide a user-friendly system experience, the job is done between silky smooth operations. </li>
+</ol>
+<h3 id="business-extensibility"><a class="header" href="#business-extensibility">Business Extensibility</a></h3>
+<ul>
+<li>Easy to develop new features with Battery-included Delicate.</li>
+<li>Easy to operate/easy to install.</li>
+</ul>
+<h2 id="roadmap-2021"><a class="header" href="#roadmap-2021">Roadmap 2021</a></h2>
+<table><thead><tr><th>Name</th><th>Issue</th><th>Description</th></tr></thead><tbody>
+<tr><td>I18n</td><td></td><td>Internationalization, convenient for users in different countries and regions.</td></tr>
+<tr><td>Operation Log</td><td></td><td>Record the user's operation behavior.</td></tr>
+<tr><td>Permission Management</td><td></td><td>Humanized permission management to protect machine task resources and maintain system security.</td></tr>
+<tr><td>Multiple login protocols</td><td></td><td>Support multiple login protocols to open up the user system within the enterprise and enhance user experience.</td></tr>
+<tr><td>Machine resource panel</td><td></td><td>Powerful online resource panel with online visualization of machine / task support for multiple user actions.</td></tr>
+<tr><td>Failover</td><td></td><td>Automatically migrate tasks when a node is down.</td></tr>
+<tr><td>Upgrade to actix-web 4</td><td></td><td>Wait for actix-web 4 stable which will support with tokio 1 , So that <code>scheduler &amp; executor</code> communication can using RPC  (<code>tonic ｜ tarpc</code>).</td></tr>
+</tbody></table>
+<div style="break-before: page; page-break-before: always;"></div><ul>
+<li>
+<p><a href="entries.html#executorgroup">Executor Group</a></p>
+<ul>
+<li><a href="entries.html#configuration-1">Configuration</a></li>
+</ul>
+</li>
+<li>
+<p><a href="entries.html#executorprocessor">Executor Processor</a></p>
+<ul>
+<li><a href="entries.html#configuration-2">Configuration</a></li>
+</ul>
+</li>
+<li>
+<p><a href="entries.html#executorprocessorbind">Executor Processor Bind</a></p>
+<ul>
+<li><a href="entries.html#configuration-3">Configuration</a></li>
+</ul>
+</li>
+<li>
+<p><a href="entries.html#task">Task</a></p>
+<ul>
+<li><a href="entries.html#configuration-4">Configuration</a></li>
+</ul>
+</li>
+<li>
+<p><a href="entries.html#taskinstance">Task Instance</a></p>
+<ul>
+<li><a href="entries.html#configuration-5">Configuration</a></li>
+</ul>
+</li>
+<li>
+<p><a href="entries.html#user">User</a></p>
+<ul>
+<li><a href="entries.html#configuration-6">Configuration</a></li>
+</ul>
+</li>
+<li>
+<p><a href="entries.html#statusdataaggregation">Status Data Aggregation</a></p>
+</li>
+<li>
+<p><a href="entries.html#security">Security</a></p>
+</li>
+</ul>
+<h2 id="executorgroup"><a class="header" href="#executorgroup">ExecutorGroup</a></h2>
+<p><code>Executor Group</code> which corresponds to a service, or a business.</p>
+<a href="">
+    <img src="./_media/group_create.jpg"
+         alt="Executor Group" title="Executor Group"  />
+</a>
+<h3 id="configuration-1"><a class="header" href="#configuration-1">Configuration-1</a></h3>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Required</th></tr></thead><tbody>
+<tr><td>name</td><td>string</td><td>Group name</td><td>Yes</td></tr>
+<tr><td>description</td><td>string</td><td>Group description</td><td>Yes</td></tr>
+<tr><td>tag</td><td>string</td><td>Group tag</td><td>Yes</td></tr>
+</tbody></table>
+<h2 id="executorprocessor"><a class="header" href="#executorprocessor">ExecutorProcessor</a></h2>
+<p><code>Executor Processor</code> which corresponding to a physical machine, or a container.</p>
+<a href="">
+    <img src="./_media/executor_list.jpg"
+         alt="Executor Group" title="Executor Group"  />
+</a>
+<h3 id="configuration-2"><a class="header" href="#configuration-2">Configuration-2</a></h3>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Required</th></tr></thead><tbody>
+<tr><td>name</td><td>string</td><td>Processor name</td><td>Yes</td></tr>
+<tr><td>description</td><td>string</td><td>Processor description</td><td>Yes</td></tr>
+<tr><td>tag</td><td>string</td><td>Processor tag</td><td>Yes</td></tr>
+<tr><td>host</td><td>string</td><td>Processor host ,  No spaces between strings, (example: 12.34.56.78:9080 )</td><td>Yes</td></tr>
+<tr><td>machine_id</td><td>int</td><td>Processor machine-id , Value range (0 to 1023). In order to mark custom machine serial numbers and to be able to using snowflake algorithm generate unique task-instance-id</td><td>Yes</td></tr>
+</tbody></table>
+<h2 id="executorprocessorbind"><a class="header" href="#executorprocessorbind">ExecutorProcessorBind</a></h2>
+<p><code>Executor Processor Bind</code>, which corresponds to the association between a <code>Executor Group</code> and a <code>Executor Processor</code>, and the task needs to select the machine(Executor Processor) to execute through the association <code>Executor Processor Bind</code>. </p>
+<p>Tip:</p>
+<p>When there are hundreds of tasks associated with a certain <code>Executor Processor Bind</code>, it is easy to switch the machine that executes the task if you want to. Just modify the <code>Executor Processor</code> associated with the <code>Executor Processor Bind</code>, then hundreds of tasks will be removed from the old machine and executed on the new machine.</p>
+<a href="">
+    <img src="./_media/group_inner_bind.jpg"
+         alt="Executor Processor Bind" title="Executor Processor Bind"  />
+</a>
+<h3 id="configuration-3"><a class="header" href="#configuration-3">Configuration-3</a></h3>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Required</th></tr></thead><tbody>
+<tr><td>group_id</td><td>int</td><td>Group id</td><td>Yes</td></tr>
+<tr><td>executor_id</td><td>int</td><td>Processor id</td><td>Yes</td></tr>
+<tr><td>name</td><td>string</td><td>Binding name</td><td>Yes</td></tr>
+<tr><td>weight</td><td>int</td><td>Resource Occupancy Weights</td><td>Yes</td></tr>
+</tbody></table>
+<h2 id="task"><a class="header" href="#task">Task</a></h2>
+<p><code>Task</code> which corresponds to a set of commands given by the user that will be executed on the machine to generate task instances.</p>
+<a href="">
+    <img src="./_media/task_list.jpg"
+         alt="Task" title="Task"  />
+</a>
+<h3 id="configuration-4"><a class="header" href="#configuration-4">Configuration-4</a></h3>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Required</th></tr></thead><tbody>
+<tr><td>name</td><td>string</td><td>Task name</td><td>Yes</td></tr>
+<tr><td>description</td><td>string</td><td>Task sescription</td><td>Yes</td></tr>
+<tr><td>command</td><td>string</td><td>Task Commands for task execution</td><td>Yes</td></tr>
+<tr><td>frequency</td><td>string</td><td>Frequency for task execution</td><td>Yes</td></tr>
+<tr><td>cron_expression</td><td>string</td><td>Cron Expression for task execution</td><td>Yes</td></tr>
+<tr><td>timeout</td><td>int</td><td>Cron Timeout for task execution</td><td>Yes</td></tr>
+<tr><td>retry_times</td><td>int</td><td>Retry times for task execution</td><td>Yes</td></tr>
+<tr><td>retry_interval</td><td>int</td><td>Retry interval for task execution</td><td>Yes</td></tr>
+<tr><td>tag</td><td>string</td><td>Task's tag</td><td>Yes</td></tr>
+<tr><td>binding_ids</td><td>[int]</td><td>Task's bingding</td><td>Yes</td></tr>
+</tbody></table>
+<h2 id="taskinstance"><a class="header" href="#taskinstance">TaskInstance</a></h2>
+<p><code>Task Instance</code> which corresponds to an instance of a running task (e.g a running process).</p>
+<a href="">
+    <img src="./_media/task_log_detail.jpg"
+         alt="TaskInstance" title="TaskInstance"  />
+</a>
+<h3 id="configuration-5"><a class="header" href="#configuration-5">Configuration-5</a></h3>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Required</th></tr></thead><tbody>
+<tr><td>id</td><td>int</td><td>Unique id generated by snowflake algorithm</td><td>Yes</td></tr>
+<tr><td>task_id</td><td>int</td><td>Task's id</td><td>Yes</td></tr>
+<tr><td>name</td><td>string</td><td>Task name (snapshot)</td><td>Yes</td></tr>
+<tr><td>description</td><td>string</td><td>Task description (snapshot)</td><td>Yes</td></tr>
+<tr><td>command</td><td>string</td><td>Task's id</td><td>Yes</td></tr>
+<tr><td>frequency</td><td>string</td><td>Task's frequency (snapshot)</td><td>Yes</td></tr>
+<tr><td>cron_expression</td><td>string</td><td>Task's cron_expression (snapshot)</td><td>Yes</td></tr>
+<tr><td>maximum_parallel_runnable_num</td><td>int</td><td>Task 'smaximum_parallel_runnable_num (snapshot)</td><td>Yes</td></tr>
+<tr><td>tag</td><td>string</td><td>Task's tag (snapshot)</td><td>Yes</td></tr>
+<tr><td>status</td><td>int</td><td>Task's Status Included(Running = 1,Finished = 2,AbnormalEnding = 3,TimeoutEnding = 4,TmanualCancellation = 5,Unknown = 81)</td><td>Yes</td></tr>
+<tr><td>created_time</td><td>datetime</td><td>Task Instance creation time</td><td>Yes</td></tr>
+<tr><td>updated_time</td><td>datetime</td><td>Task Instance Update time</td><td>Yes</td></tr>
+<tr><td>executor_processor_id</td><td>int</td><td>Executor processor id</td><td>Yes</td></tr>
+<tr><td>executor_processor_name</td><td>string</td><td>Executor processor name (snapshot)</td><td>Yes</td></tr>
+<tr><td>executor_processor_host</td><td>string</td><td>Executor processor host</td><td>Yes</td></tr>
+</tbody></table>
+<h2 id="user"><a class="header" href="#user">User</a></h2>
+<p><code>User</code> which corresponds to users of the system.</p>
+<p>PS: When the system is first installed, you can set the initial user in <code>.env</code>.</p>
+<a href="">
+    <img src="./_media/user_list.jpg"
+         alt="User" title="User"  />
+</a>
+<h3 id="configuration-6"><a class="header" href="#configuration-6">Configuration-6</a></h3>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Required</th></tr></thead><tbody>
+<tr><td>user_name</td><td>string</td><td>User account, must be unique</td><td>Yes</td></tr>
+<tr><td>nick_name</td><td>string</td><td>User nickname</td><td>Yes</td></tr>
+<tr><td>mobile</td><td>string</td><td>Mobie-number(unique)</td><td>Yes</td></tr>
+<tr><td>email</td><td>string</td><td>Email(unique)</td><td>Yes</td></tr>
+<tr><td>certificate</td><td>string</td><td>Password credentials (the station saves the password, the station does not save or save the token)</td><td>Yes</td></tr>
+</tbody></table>
+<h2 id="statusdataaggregation"><a class="header" href="#statusdataaggregation">StatusDataAggregation</a></h2>
+<p>delicate aggregates the task scheduling for the latest day, including: (successful scheduling, timeout, manual cancellation, abnormal end, normal end, etc.), which we can view in the home dashboard.</p>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/dashboard.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<h2 id="security"><a class="header" href="#security">Security</a></h2>
+<p>There are two levels of security, 0 and 1.
+This can be adjusted by setting the environment variable <code>DELICATE_SECURITY_LEVEL</code>.</p>
+<p>At level 0, the executor and scheduler communicate without security signatures.</p>
+<p>Under level 1, executor and scheduler will use RSA key for authentication when binding, and then dynamically generate a token, which will be stored in the database of scheduler, and each subsequent communication will use token &amp; sha2 hash algorithm for signature authentication.</p>
+<div style="break-before: page; page-break-before: always;"></div><p>After the deployment, we can start using the delicate related functions.</p>
+<p>First login via .env (<code>INITIAL_ADMINISTRATOR_USER_NAME</code>) , the initialized user.</p>
+<a href="">
+    <img src="./_media/login_en.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<p>First, we go to <code>execution-resources-executor-node</code> to maintain <code>delicate-executor</code> into our system as a machine resource and perform the activation operation.</p>
+<a href="">
+    <img src="./_media/executor_list.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="./_media/executor_create.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<p>Then, go to the <code>execution-resources-execution-groups</code> menu to add our resource group and do binding with the corresponding <code>execution-node</code> to generate <code>binding items</code>.</p>
+<a href="">
+    <img src="./_media/group_list.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="./_media/group_inner_bind.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<p>Next, go to the <code>Task List</code> to add our scheduling task and associate our <code>binding item</code>.</p>
+<a href="">
+    <img src="./_media/task_list.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="./_media/task_edit.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="./_media/task_list_operation.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="./_media/task_list.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<p>When a task starts scheduling, a scheduling log is generated, and we can click the <code>More</code> button -&gt; <code>View Log</code> for the specified task under the task list.</p>
+<a href="">
+    <img src="./_media/task_logs_2.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<p>Each task run log corresponds to a <code>task instance</code>, which can be cancelled at any time when it is running. Tasks that have finished running, or have timed out, can be viewed with standard output and standard errors generated by the task execution.</p>
+<a href="">
+    <img src="./_media/task_log_kill.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<p>For more content, please see doc.</p>
+<div style="break-before: page; page-break-before: always;"></div><p>在部署之后，我们可以开始使用delicate的相关功能。</p>
+<p>首先通过 .env (<code>INITIAL_ADMINISTRATOR_USER_NAME</code>) , 初始化的用户进行登陆。</p>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/login_zh.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<p>首先，我们进入<code>执行资源-执行节点</code>将<code>delicate-executor</code>作为机器资源维护进入我们的系统，并执行激活操作。</p>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/executor_list.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/executor_create.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<p>然后，进入<code>执行资源-执行组</code>菜单添加我们的资源组，并与对应的<code>执行节点</code>做绑定生成<code>绑定项</code>。</p>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/group_list.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/group_inner_bind.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<p>下一步，进入<code>任务列表</code>添加我们的调度任务，并关联我们的<code>绑定项</code>.</p>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/task_list.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/task_edit.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/task_list_operation.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/task_list.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<p>当任务开始调度后，生成调度日志，我们可以通过任务列表下的指定任务点击<code>更多</code>按钮  -&gt; <code>查看日志</code>。</p>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/task_logs_2.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<p>每一个任务的运行日志都对应着一个<code>任务实例</code>, 在运行中的任务实例是可以随时取消的。已经运行完成，或者超时的任务可以查看任务执行后产生的标准输出与标准错误。</p>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/task_log_kill.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<p>更多内容请查看doc。</p>
+<div style="break-before: page; page-break-before: always;"></div><ul>
+<li><a href="./entries.html#ExecutorGroup">Executor Group</a></li>
+<li><a href="./entries.html#ExecutorProcessor">Executor Processor</a></li>
+<li><a href="./entries.html#ExecutorProcessorBind">Executor Processor Bind</a></li>
+<li><a href="./entries.html#Task">Task</a></li>
+<li><a href="./entries.html#TaskInstance">Task Instance</a></li>
+<li><a href="./entries.html#User">User</a></li>
+<li><a href="./entries.html#StatusDataAggregation">Status Data Aggregation</a></li>
+<li><a href="./entries.html#Security">Security</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><p><a href="https://github.com/BinChengZhao/delicate">delicate</a> A lightweight and distributed task scheduling platform written in rust.</p>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/delicate_logo.png"
+         alt="delicate logo" title="delicate" height="125" width="125"  align="right"/>
+</a>
+<h2 id="features-1"><a class="header" href="#features-1">Features</a></h2>
+<ul>
+<li>
+<p><strong>Friendly UI:</strong> [Front-end] Convenient management of tasks &amp; executors, monitoring their status and supporting manual maintenance etc.</p>
+</li>
+<li>
+<p><strong>Flexible Operations:</strong> Flexible task operations, support for limiting the maximum number of parallelism in a single node, time zone settings corresponding to cron expressions, scheduling modes (single, fixed number, constantly repeating), the ability to manually trigger tasks at any time, manually terminate task instances, and view task logs online.</p>
+</li>
+<li>
+<p><strong>High Availability:</strong>  Delicate supports unlimited horizontal expansion. It's easy to achieve high availability and performance by deploying as many Delicate servers and executors.</p>
+</li>
+<li>
+<p><strong>High Performance:</strong> Lightweight and essential features speed up the performance, The basic resource overhead for <code>delicate</code> is roughly (less than 0.1% cpu usage, with about 10m of memory.)</p>
+</li>
+<li>
+<p><strong>Observability:</strong>  There are many meaningful statistics periodically in a readable way.</p>
+</li>
+<li>
+<p><strong>Upgrade:</strong>  Dynamic upgrade of the system (upgrade is done by obtaining the latest source code and performing database migration.</p>
+</li>
+</ul>
+<p><img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/delicate-architecture.svg" alt="architecture" /></p>
+<h2 id="technology-stack"><a class="header" href="#technology-stack">Technology-stack</a></h2>
+<p>Backend: Rust<br />
+main-dependencies: (actix-web &amp; diesel &amp; delay-timer &amp; serde &amp; tracing)</p>
+<p>Front-end: antd-admin (React)</p>
+<p>Ui: Ant Design</p>
+<p>Database: mysql , postgres (plan support)</p>
+<p><a href="https://github.com/BinChengZhao/delicate/blob/main/doc/quick_start.md">Quick-start</a></p>
+<h2 id="whats-next"><a class="header" href="#whats-next">What's next#</a></h2>
+<p>At the this year, we announced our 2021 roadmap for Delicate. So we will continue to follow this roadmap.</p>
+<p><a href="https://github.com/BinChengZhao/delicate/blob/main/doc/Roadmap.md">Roadmap</a></p>
+<h2 id="thanks"><a class="header" href="#thanks">Thanks</a></h2>
+<p>Thank you!</p>
+<p>We would like to thank the whole community and code contributors. In particular, thanks to the code contributors from the past two months:
+<a href="https://github.com/Walker-os">Walker-os</a></p>
+<p>Thanks to users reporting spelling mistakes on the documentation. This is always appreciated.
+Thanks to users joining us provide feedbacks, discuss features, and get assistance!</p>
+<h2 id="renderings"><a class="header" href="#renderings">Renderings</a></h2>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/dashboard.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/task_list.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/task_list_operation.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/task_logs.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/task_log_kill.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/executor_list.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/group_list.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/group_inner_bind.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/task_logs_2.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/user_list.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="a-hrefhttpsgithubcombinchengzhaodelicatedelicatea-一个轻量的分布式的任务调度平台通过rust编写"><a class="header" href="#a-hrefhttpsgithubcombinchengzhaodelicatedelicatea-一个轻量的分布式的任务调度平台通过rust编写"><a href="https://github.com/BinChengZhao/delicate">delicate</a> 一个轻量的分布式的任务调度平台通过rust编写.</a></h2>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/delicate_logo.png"
+         alt="delicate logo" title="delicate" height="125" width="125"  align="right"/>
+</a>
+<h2 id="特性"><a class="header" href="#特性">特性</a></h2>
+<ul>
+<li>
+<p><strong>友好的用户界面：</strong> [前端]方便地管理任务和执行器，监控其状态，支持手动维护运行中的任务等。</p>
+</li>
+<li>
+<p><strong>灵活的操作：</strong> 灵活的任务操作，支持限制单个节点的最大并行数，与cron表达式相对应的时区设置，调度模式（单一、固定数量、不断重复），能够在任何时候手动触发任务，手动终止任务实例，在线查看任务日志。</p>
+</li>
+<li>
+<p><strong>高可用性：</strong> Delicate支持横向扩展。通过部署尽可能多的Delicate服务器和执行器，很容易实现高可用性和性能。</p>
+</li>
+<li>
+<p><strong>高性能:</strong> 轻量级和基本功能加快了性能，`delicate'的基本资源开销大约是（小于0.1%的cpu使用率，10m的内存.)</p>
+</li>
+<li>
+<p><strong>可观察性:</strong> 有许多有意义的统计数据定期以图表的方式展现。</p>
+</li>
+<li>
+<p><strong>升级:</strong> 系统的动态升级（升级是通过获得最新的源代码和进行数据库迁移.)</p>
+</li>
+</ul>
+<p><img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/delicate-architecture.svg" alt="architecture" /></p>
+<h2 id="技术栈"><a class="header" href="#技术栈">技术栈</a></h2>
+<p>后端( scheduler &amp; executor ): Rust<br />
+主要的依赖: (actix-web &amp; diesel &amp; delay-timer &amp; serde &amp; tracing)</p>
+<p>前端: antd-admin (React)</p>
+<p>Ui: Ant Design</p>
+<p>数据库: mysql , postgres (计划支持)</p>
+<p><a href="https://github.com/BinChengZhao/delicate/blob/main/doc/quick_start_zh_cn.md">Quick-start</a></p>
+<h2 id="下一步是什么"><a class="header" href="#下一步是什么">下一步是什么</a></h2>
+<p>在今年的计划中，我们宣布了2021年Delicate的路线图。因此，我们将继续遵循这个路线图.</p>
+<p><a href="https://github.com/BinChengZhao/delicate/blob/main/doc/Roadmap.md">Roadmap</a></p>
+<h2 id="感谢"><a class="header" href="#感谢">感谢</a></h2>
+<p>谢谢你</p>
+<p>我们要感谢整个社区和代码贡献者。特别是，感谢过去两个月的代码贡献者:
+<a href="https://github.com/Walker-os">Walker-os</a></p>
+<p>感谢用户报告文档中的拼写错误, 这非常感谢大家。
+感谢用户加入我们，提供反馈，讨论功能，并获得帮助!</p>
+<h2 id="效果图"><a class="header" href="#效果图">效果图</a></h2>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/dashboard.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/task_list.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/task_list_operation.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/task_logs.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/task_log_kill.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/executor_list.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/group_list.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/group_inner_bind.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/task_logs_2.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/user_list.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+    </body>
+</html>

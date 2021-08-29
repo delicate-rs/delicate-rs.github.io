@@ -1,0 +1,344 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Terminology combing - delicate-guide</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="Roadmap.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="entries.html" class="active"><strong aria-hidden="true">1.</strong> Terminology combing</a></li><li class="chapter-item expanded "><a href="quick_start.html"><strong aria-hidden="true">2.</strong> Quick start</a></li><li class="chapter-item expanded "><a href="quick_start_zh_cn.html"><strong aria-hidden="true">3.</strong> Quick start(中文)</a></li><li class="chapter-item expanded "><a href="reference.html"><strong aria-hidden="true">4.</strong> Quick Navigation</a></li><li class="chapter-item expanded "><a href="promotional_doc.html"><strong aria-hidden="true">5.</strong> Promotion</a></li><li class="chapter-item expanded "><a href="promotional_doc_zh_cn.html"><strong aria-hidden="true">6.</strong> Promotion(中文)</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">delicate-guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <ul>
+<li>
+<p><a href="#executorgroup">Executor Group</a></p>
+<ul>
+<li><a href="#configuration-1">Configuration</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#executorprocessor">Executor Processor</a></p>
+<ul>
+<li><a href="#configuration-2">Configuration</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#executorprocessorbind">Executor Processor Bind</a></p>
+<ul>
+<li><a href="#configuration-3">Configuration</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#task">Task</a></p>
+<ul>
+<li><a href="#configuration-4">Configuration</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#taskinstance">Task Instance</a></p>
+<ul>
+<li><a href="#configuration-5">Configuration</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#user">User</a></p>
+<ul>
+<li><a href="#configuration-6">Configuration</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#statusdataaggregation">Status Data Aggregation</a></p>
+</li>
+<li>
+<p><a href="#security">Security</a></p>
+</li>
+</ul>
+<h2 id="executorgroup"><a class="header" href="#executorgroup">ExecutorGroup</a></h2>
+<p><code>Executor Group</code> which corresponds to a service, or a business.</p>
+<a href="">
+    <img src="./_media/group_create.jpg"
+         alt="Executor Group" title="Executor Group"  />
+</a>
+<h3 id="configuration-1"><a class="header" href="#configuration-1">Configuration-1</a></h3>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Required</th></tr></thead><tbody>
+<tr><td>name</td><td>string</td><td>Group name</td><td>Yes</td></tr>
+<tr><td>description</td><td>string</td><td>Group description</td><td>Yes</td></tr>
+<tr><td>tag</td><td>string</td><td>Group tag</td><td>Yes</td></tr>
+</tbody></table>
+<h2 id="executorprocessor"><a class="header" href="#executorprocessor">ExecutorProcessor</a></h2>
+<p><code>Executor Processor</code> which corresponding to a physical machine, or a container.</p>
+<a href="">
+    <img src="./_media/executor_list.jpg"
+         alt="Executor Group" title="Executor Group"  />
+</a>
+<h3 id="configuration-2"><a class="header" href="#configuration-2">Configuration-2</a></h3>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Required</th></tr></thead><tbody>
+<tr><td>name</td><td>string</td><td>Processor name</td><td>Yes</td></tr>
+<tr><td>description</td><td>string</td><td>Processor description</td><td>Yes</td></tr>
+<tr><td>tag</td><td>string</td><td>Processor tag</td><td>Yes</td></tr>
+<tr><td>host</td><td>string</td><td>Processor host ,  No spaces between strings, (example: 12.34.56.78:9080 )</td><td>Yes</td></tr>
+<tr><td>machine_id</td><td>int</td><td>Processor machine-id , Value range (0 to 1023). In order to mark custom machine serial numbers and to be able to using snowflake algorithm generate unique task-instance-id</td><td>Yes</td></tr>
+</tbody></table>
+<h2 id="executorprocessorbind"><a class="header" href="#executorprocessorbind">ExecutorProcessorBind</a></h2>
+<p><code>Executor Processor Bind</code>, which corresponds to the association between a <code>Executor Group</code> and a <code>Executor Processor</code>, and the task needs to select the machine(Executor Processor) to execute through the association <code>Executor Processor Bind</code>. </p>
+<p>Tip:</p>
+<p>When there are hundreds of tasks associated with a certain <code>Executor Processor Bind</code>, it is easy to switch the machine that executes the task if you want to. Just modify the <code>Executor Processor</code> associated with the <code>Executor Processor Bind</code>, then hundreds of tasks will be removed from the old machine and executed on the new machine.</p>
+<a href="">
+    <img src="./_media/group_inner_bind.jpg"
+         alt="Executor Processor Bind" title="Executor Processor Bind"  />
+</a>
+<h3 id="configuration-3"><a class="header" href="#configuration-3">Configuration-3</a></h3>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Required</th></tr></thead><tbody>
+<tr><td>group_id</td><td>int</td><td>Group id</td><td>Yes</td></tr>
+<tr><td>executor_id</td><td>int</td><td>Processor id</td><td>Yes</td></tr>
+<tr><td>name</td><td>string</td><td>Binding name</td><td>Yes</td></tr>
+<tr><td>weight</td><td>int</td><td>Resource Occupancy Weights</td><td>Yes</td></tr>
+</tbody></table>
+<h2 id="task"><a class="header" href="#task">Task</a></h2>
+<p><code>Task</code> which corresponds to a set of commands given by the user that will be executed on the machine to generate task instances.</p>
+<a href="">
+    <img src="./_media/task_list.jpg"
+         alt="Task" title="Task"  />
+</a>
+<h3 id="configuration-4"><a class="header" href="#configuration-4">Configuration-4</a></h3>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Required</th></tr></thead><tbody>
+<tr><td>name</td><td>string</td><td>Task name</td><td>Yes</td></tr>
+<tr><td>description</td><td>string</td><td>Task sescription</td><td>Yes</td></tr>
+<tr><td>command</td><td>string</td><td>Task Commands for task execution</td><td>Yes</td></tr>
+<tr><td>frequency</td><td>string</td><td>Frequency for task execution</td><td>Yes</td></tr>
+<tr><td>cron_expression</td><td>string</td><td>Cron Expression for task execution</td><td>Yes</td></tr>
+<tr><td>timeout</td><td>int</td><td>Cron Timeout for task execution</td><td>Yes</td></tr>
+<tr><td>retry_times</td><td>int</td><td>Retry times for task execution</td><td>Yes</td></tr>
+<tr><td>retry_interval</td><td>int</td><td>Retry interval for task execution</td><td>Yes</td></tr>
+<tr><td>tag</td><td>string</td><td>Task's tag</td><td>Yes</td></tr>
+<tr><td>binding_ids</td><td>[int]</td><td>Task's bingding</td><td>Yes</td></tr>
+</tbody></table>
+<h2 id="taskinstance"><a class="header" href="#taskinstance">TaskInstance</a></h2>
+<p><code>Task Instance</code> which corresponds to an instance of a running task (e.g a running process).</p>
+<a href="">
+    <img src="./_media/task_log_detail.jpg"
+         alt="TaskInstance" title="TaskInstance"  />
+</a>
+<h3 id="configuration-5"><a class="header" href="#configuration-5">Configuration-5</a></h3>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Required</th></tr></thead><tbody>
+<tr><td>id</td><td>int</td><td>Unique id generated by snowflake algorithm</td><td>Yes</td></tr>
+<tr><td>task_id</td><td>int</td><td>Task's id</td><td>Yes</td></tr>
+<tr><td>name</td><td>string</td><td>Task name (snapshot)</td><td>Yes</td></tr>
+<tr><td>description</td><td>string</td><td>Task description (snapshot)</td><td>Yes</td></tr>
+<tr><td>command</td><td>string</td><td>Task's id</td><td>Yes</td></tr>
+<tr><td>frequency</td><td>string</td><td>Task's frequency (snapshot)</td><td>Yes</td></tr>
+<tr><td>cron_expression</td><td>string</td><td>Task's cron_expression (snapshot)</td><td>Yes</td></tr>
+<tr><td>maximum_parallel_runnable_num</td><td>int</td><td>Task 'smaximum_parallel_runnable_num (snapshot)</td><td>Yes</td></tr>
+<tr><td>tag</td><td>string</td><td>Task's tag (snapshot)</td><td>Yes</td></tr>
+<tr><td>status</td><td>int</td><td>Task's Status Included(Running = 1,Finished = 2,AbnormalEnding = 3,TimeoutEnding = 4,TmanualCancellation = 5,Unknown = 81)</td><td>Yes</td></tr>
+<tr><td>created_time</td><td>datetime</td><td>Task Instance creation time</td><td>Yes</td></tr>
+<tr><td>updated_time</td><td>datetime</td><td>Task Instance Update time</td><td>Yes</td></tr>
+<tr><td>executor_processor_id</td><td>int</td><td>Executor processor id</td><td>Yes</td></tr>
+<tr><td>executor_processor_name</td><td>string</td><td>Executor processor name (snapshot)</td><td>Yes</td></tr>
+<tr><td>executor_processor_host</td><td>string</td><td>Executor processor host</td><td>Yes</td></tr>
+</tbody></table>
+<h2 id="user"><a class="header" href="#user">User</a></h2>
+<p><code>User</code> which corresponds to users of the system.</p>
+<p>PS: When the system is first installed, you can set the initial user in <code>.env</code>.</p>
+<a href="">
+    <img src="./_media/user_list.jpg"
+         alt="User" title="User"  />
+</a>
+<h3 id="configuration-6"><a class="header" href="#configuration-6">Configuration-6</a></h3>
+<table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Required</th></tr></thead><tbody>
+<tr><td>user_name</td><td>string</td><td>User account, must be unique</td><td>Yes</td></tr>
+<tr><td>nick_name</td><td>string</td><td>User nickname</td><td>Yes</td></tr>
+<tr><td>mobile</td><td>string</td><td>Mobie-number(unique)</td><td>Yes</td></tr>
+<tr><td>email</td><td>string</td><td>Email(unique)</td><td>Yes</td></tr>
+<tr><td>certificate</td><td>string</td><td>Password credentials (the station saves the password, the station does not save or save the token)</td><td>Yes</td></tr>
+</tbody></table>
+<h2 id="statusdataaggregation"><a class="header" href="#statusdataaggregation">StatusDataAggregation</a></h2>
+<p>delicate aggregates the task scheduling for the latest day, including: (successful scheduling, timeout, manual cancellation, abnormal end, normal end, etc.), which we can view in the home dashboard.</p>
+<a href="">
+    <img src="https://delicate-rs-1301941387.cos.ap-beijing.myqcloud.com/delicate-rs/dashboard.jpg"
+         alt="" title="delicate" align="right"/>
+</a>
+<h2 id="security"><a class="header" href="#security">Security</a></h2>
+<p>There are two levels of security, 0 and 1.
+This can be adjusted by setting the environment variable <code>DELICATE_SECURITY_LEVEL</code>.</p>
+<p>At level 0, the executor and scheduler communicate without security signatures.</p>
+<p>Under level 1, executor and scheduler will use RSA key for authentication when binding, and then dynamically generate a token, which will be stored in the database of scheduler, and each subsequent communication will use token &amp; sha2 hash algorithm for signature authentication.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="Roadmap.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="quick_start.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="Roadmap.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="quick_start.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
