@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Deploy - delicate-guide</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../Roadmap.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../../entries.html"><strong aria-hidden="true">1.</strong> Terminology combing</a></li><li class="chapter-item expanded "><a href="../../quick_start.html"><strong aria-hidden="true">2.</strong> Quick start</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../quick_start_zh_cn.html"><strong aria-hidden="true">2.1.</strong> Quick start(中文)</a></li></ol></li><li class="chapter-item expanded "><a href="../../promotional_doc.html"><strong aria-hidden="true">3.</strong> Promotion</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../promotional_doc_zh_cn.html"><strong aria-hidden="true">3.1.</strong> Promotion(中文)</a></li></ol></li><li class="chapter-item expanded "><a href="../../delicate-web/index.html"><strong aria-hidden="true">4.</strong> Delicate web (Front End)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../delicate-web/index.html"><strong aria-hidden="true">4.1.</strong> Doc</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../delicate-web/layout.html"><strong aria-hidden="true">4.1.1.</strong> Layout</a></li><li class="chapter-item expanded "><a href="../../delicate-web/configuration.html"><strong aria-hidden="true">4.1.2.</strong> Configuration</a></li><li class="chapter-item expanded "><a href="../../delicate-web/faq.html"><strong aria-hidden="true">4.1.3.</strong> FAQ</a></li><li class="chapter-item expanded "><a href="../../delicate-web/getting-started.html"><strong aria-hidden="true">4.1.4.</strong> Getting started</a></li><li class="chapter-item expanded "><a href="../../delicate-web/API-configuration.html"><strong aria-hidden="true">4.1.5.</strong> API configuration</a></li><li class="chapter-item expanded "><a href="../../delicate-web/i18n.html"><strong aria-hidden="true">4.1.6.</strong> I18n</a></li><li class="chapter-item expanded "><a href="../../delicate-web/_sidebar.html"><strong aria-hidden="true">4.1.7.</strong> Sidebar</a></li><li class="chapter-item expanded "><a href="../../delicate-web/request.html"><strong aria-hidden="true">4.1.8.</strong> Request</a></li><li class="chapter-item expanded "><a href="../../delicate-web/deploy.html"><strong aria-hidden="true">4.1.9.</strong> Deploy</a></li><li class="chapter-item expanded "><a href="../../delicate-web/change-log.html"><strong aria-hidden="true">4.1.10.</strong> Change log</a></li></ol></li><li class="chapter-item expanded "><a href="../../delicate-web/zh-cn/index.html"><strong aria-hidden="true">4.2.</strong> Doc(中文)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../delicate-web/zh-cn/layout.html"><strong aria-hidden="true">4.2.1.</strong> Layout</a></li><li class="chapter-item expanded "><a href="../../delicate-web/zh-cn/configuration.html"><strong aria-hidden="true">4.2.2.</strong> Configuration</a></li><li class="chapter-item expanded "><a href="../../delicate-web/zh-cn/faq.html"><strong aria-hidden="true">4.2.3.</strong> FAQ</a></li><li class="chapter-item expanded "><a href="../../delicate-web/zh-cn/getting-started.html"><strong aria-hidden="true">4.2.4.</strong> Getting started</a></li><li class="chapter-item expanded "><a href="../../delicate-web/zh-cn/API-configuration.html"><strong aria-hidden="true">4.2.5.</strong> API configuration</a></li><li class="chapter-item expanded "><a href="../../delicate-web/zh-cn/i18n.html"><strong aria-hidden="true">4.2.6.</strong> I18n</a></li><li class="chapter-item expanded "><a href="../../delicate-web/zh-cn/_sidebar.html"><strong aria-hidden="true">4.2.7.</strong> Sidebar</a></li><li class="chapter-item expanded "><a href="../../delicate-web/zh-cn/request.html"><strong aria-hidden="true">4.2.8.</strong> Request</a></li><li class="chapter-item expanded "><a href="../../delicate-web/zh-cn/deploy.html" class="active"><strong aria-hidden="true">4.2.9.</strong> Deploy</a></li><li class="chapter-item expanded "><a href="../../delicate-web/zh-cn/change-log.html"><strong aria-hidden="true">4.2.10.</strong> Change log</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">delicate-guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="部署"><a class="header" href="#部署">部署</a></h1>
+<p>完成开发并且在开发环境验证之后，就需要部署给我们的用户了。</p>
+<p><img src="../_media/term_build.svg" alt="i18n" /></p>
+<h2 id="构建"><a class="header" href="#构建">构建</a></h2>
+<p>先执行下面的命令，</p>
+<pre><code class="language-bash">npm run build
+</code></pre>
+<p>几秒后，输出应该如下：</p>
+<pre><code class="language-bash">&gt; delicate-rs@5.0.0-beta build /Users/delicate/delicate-web
+&gt; umi build
+
+[21:13:17] webpack compiled in 43s 868ms
+ DONE  Compiled successfully in 43877ms          21:13:17
+
+File sizes after gzip:
+
+  1.3 MB     dist/vendors.async.js
+  308.21 KB  dist/umi.js
+  45.49 KB   dist/vendors.chunk.css
+  36.08 KB   dist/p__chart__highCharts__index.async.js
+  33.53 KB   dist/p__user__index.async.js
+  22.36 KB   dist/p__chart__ECharts__index.async.js
+  4.21 KB    dist/p__dashboard__index.async.js
+  4.06 KB    dist/umi.css
+  ...
+</code></pre>
+<p><code>build</code> 命令会打包所有的资源，包含 JavaScript, CSS, web fonts, images, html 等。你可以在 <code>dist/</code> 目录下找到这些文件。</p>
+<blockquote>
+<p>如果有使用 HashHistory 、 部署 html 到非根目录、静态化等需求，请查看<a href="https://umijs.org/zh/guide/deploy.html">Umi 部署</a>。</p>
+</blockquote>
+<h2 id="本地验证"><a class="header" href="#本地验证">本地验证</a></h2>
+<p>发布之前，可以通过 <code>serve</code> 做本地验证，</p>
+<pre><code>$ yarn global add serve
+$ serve ./dist
+
+Serving!
+
+- Local:            http://localhost:5000
+- On Your Network:  http://{Your IP}:5000
+
+Copied local address to clipboard!
+
+</code></pre>
+<p>访问 <a href="http://localhost:5000">http://localhost:5000</a>，正常情况下法应该是和 <code>npm start</code> 一致的（接口可能无法获取到正确数据）。</p>
+<h2 id="部署-1"><a class="header" href="#部署-1">部署</a></h2>
+<p>接下来，我们可以把静态文件上传到服务器，如果使用 Nginx 作为 Web server，你可以在 <code>ngnix.conf</code> 中这样配置：</p>
+<pre><code>server
+	{
+		listen       80;
+        # 指定可访问的域名
+		server_name web.delicate-rs.com;
+        # 编译后的文件存放的目录
+		root  /home/www/delicate-web/dist;
+
+        # 代理服务端接口，避免跨域
+		location /api {
+			 proxy_pass http://*.*.*.*:8090/api;
+		}
+
+        # 因为前端使用了BrowserHistory，所以将路由 fallback 到 index.html
+		location / {
+				index  index.html;
+				try_files $uri $uri/ /index.html;
+		}
+	}
+</code></pre>
+<p>重启 Web server，访问 <a href="http://web.delicate-rs.com">http://web.delicate-rs.com</a> ，你将看到正确的页面。</p>
+<pre><code class="language-bash">nginx -s reload
+</code></pre>
+<p>类似的，如果你使用 Caddy 作为 Web server，你可以在 <code>Caddyfile</code> 中这样配置：</p>
+<pre><code>web.delicate-rs.com {
+        gzip
+        root /home/www/delicate-web/dist
+        proxy /api http://localhost:7000
+
+        rewrite {
+                if {path} not_match ^/api
+                to {path} {path}/ /
+        }
+}
+
+
+web.delicate-rs.com/public {
+        gzip
+        root  /home/www/delicate-web/dist/static/public
+}
+
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../delicate-web/zh-cn/request.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../delicate-web/zh-cn/change-log.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../delicate-web/zh-cn/request.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../delicate-web/zh-cn/change-log.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
